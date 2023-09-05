@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list - new task</title>
+    <%- include('inserts/main_insert.ejs') %>
+</head>
+<body>
+    <form action="/new" method="post">
+        <label for="new_task">Task:</label>
+        <input type="text" id="new_task" name="new_task">
+        <label for="repeat">repeat task:</label>
+        <select name="repeat" id="repeat">
+            <option value="daily" selected>daily</option>
+            <option value="sat-sun">sat-sun</option>
+        </select>
+        <button>Create task</button>
+    </form>
+</body>
+</html>

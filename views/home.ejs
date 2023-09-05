@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home: to-do-list</title>
+    <%- include('inserts/main_insert.ejs') %>
+</head>
+
+<body>
+    <h1>My task's</h1>
+   
+    <section class="task_list">
+        <a href="http://localhost:3000/new">
+            <button>New task</button>
+        </a>
+        <% for(let t of tdata){ %>
+            <div class="task_i">
+                <div class="task_c">
+                    <h2>
+                        <%= t.task %>
+                    </h2>
+                    <div class="task_l">
+                        <a href="">complete</a>
+                        <a href="">edit</a>
+                    </div>
+                </div>
+                <h3>repeat: <span><%= t.repeat %></span>
+                </h3>
+            </div>
+            <% } %>
+    </section>
+   
+   
+</body>
+
+</html>
