@@ -1,0 +1,13 @@
+body{
+    justify-content: center;
+}
+#new_task_form{
+    width: 50%;
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+   
+}
+div{
+    margin-bottom: 1%;
+}

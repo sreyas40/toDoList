@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list - edit task</title>
+    <%- include('inserts/main_insert.ejs') %>
+        <link rel="stylesheet" href="/task_manipulation.css">
+</head>
+
+<body>
+    <form method="post" id="new_task_form">
+        <div>
+            <label for="task">Task:</label>
+            <input type="text" id="task" name="task" value="<%= req_task.task %>">
+        </div>
+        <div>
+            <label for="repeat">repeat task:</label>
+            <select name="repeat" id="repeat">
+                <% if(req_task.repeat==='sat-sun' ){ %>
+                    <option value="daily">daily</option>
+                    <option value="sat-sun" selected>sat-sun</option>
+                    <% }else{ %>
+                        <option value="daily" selected>daily</option>
+                        <option value="sat-sun">sat-sun</option>
+                        <% } %>
+            </select>
+        </div>
+        <button>Edit task</button>
+    </form>
+    <a href="/"><button>Back</button></a>
+</body>
+
+</html>

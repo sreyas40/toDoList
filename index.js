@@ -9,14 +9,14 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.urlencoded({ extended: true }))
 
 let tdata = [{
-    'id': uid(),
-    'task': "wake up at 6am",
-    'repeat': "daily"
+    id: uid(),
+    task: "wake up at 6am",
+    repeat: "daily"
 },
 {
-    'id': uid(),
-    'task': "Go for a walk",
-    'repeat': "sat-sun"
+    id: uid(),
+    task: "Go for a walk",
+    repeat: "sat-sun"
     }];
 
 app.get('/', (req, res) => {
@@ -33,8 +33,26 @@ app.post('/new', (req, res) => {
     console.log(tdata)
    res.redirect('/')
 })
-
-
+app.get('/:id', (req, res) => {
+    const { id } = req.params;
+    console.log(id)
+    const req_task = tdata.find(t=>t.id === id)
+    console.log(req_task)
+    res.render('etask.ejs',{req_task})
+})
+app.post('/:id', (req, res) => {
+    const { id } = req.params;
+    const { task, repeat } = req.body;
+    const req_task = tdata.find(t => t.id === id);
+    req_task.task = task;
+    req_task.repeat = repeat;
+    res.redirect('/')
+})
+app.post('/:id/delete', (req, res) => {
+    const { id } = req.params;
+    tdata = tdata.filter(t => t.id !== id)
+    res.redirect('/')
+})
 
 
 

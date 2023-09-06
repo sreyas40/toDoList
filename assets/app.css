@@ -49,7 +49,7 @@ span{
     font-weight: 700;
 }
 
-a>button{
+button,a>button{
     width: 8rem;
     font-family: inherit;
 }
